@@ -1,15 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pwo.seq;
 
 import java.math.BigDecimal;
 
-public class TribonacciGenerator extends
-        FibonacciGenerator {
+public class TribonacciGenerator extends FibonacciGenerator {
 
     public TribonacciGenerator() {
+        super();
+        reset();
         f_3 = new BigDecimal(0);
     }
 
@@ -32,6 +29,20 @@ public class TribonacciGenerator extends
             current = new BigDecimal(0);
         }
         lastIndex++;
+        return current;
+    }
+
+    public BigDecimal previousTerm() {
+        if (lastIndex > 2) {
+            current = f_3;
+            f_1 = f_2;
+            f_2 = f_3.subtract(f_2).subtract(f_3);
+        } else if (lastIndex == 2) {
+            current = new BigDecimal(0);
+        } else {
+            current = new BigDecimal(1);
+        }
+        lastIndex--;
         return current;
     }
 }

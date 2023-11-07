@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pwo.app;
 
 import pwo.seq.SeqType;
@@ -35,7 +31,7 @@ class SeqToFileApp {
         return seqType != null && from >= 0 && to >= 0;
     }
 
-    protected boolean wirteSeq() {
+    protected boolean writeSeq() {
         return SequenceTools.writeToFile(seqType.getGenerator(),
                 from, to, fileName);
     }
@@ -48,7 +44,7 @@ class SeqToFileApp {
                     + "Legal usage: seqName from to fileName");
             return;
         }
-        if (!wirteSeq()) {
+        if (!writeSeq()) {
             System.out.println("!Write to the file: "
                     + fileName + " FAILED");
             return;
